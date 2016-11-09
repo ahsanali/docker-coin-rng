@@ -1,0 +1,28 @@
+rng:
+    build: .
+    ports:
+      - "8001:80"
+
+hasher:
+    image: jpetazzo/dockercoins_hasher
+    ports:
+      - "8002:80"
+
+webui:
+    image: jpetazzo/dockercoins_webui
+    links:
+      - redis
+    ports:
+      - "8000:80"
+    volumes:
+      - "./webui/files/:/files/"
+
+redis:
+    image: redis
+
+worker:
+    image: jpetazzo/dockercoins_worker
+    links:
+      - rng
+      - hasher
+      - redis
