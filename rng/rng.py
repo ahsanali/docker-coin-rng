@@ -12,6 +12,8 @@ hostname = socket.gethostname()
 
 urandom = os.open("/dev/urandom", os.O_RDONLY)
 
+def get_random_bytes(how_many_bytes):
+	return os.read(urandom, how_many_bytes)
 
 @app.route("/")
 def index():
@@ -23,7 +25,7 @@ def rng(how_many_bytes):
     # Simulate a little bit of delay
     time.sleep(0.1)
     return Response(
-        os.read(urandom, how_many_bytes),
+        get_random_bytes(how_many_bytes),
         content_type="application/octet-stream")
 
 
