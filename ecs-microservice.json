@@ -29,7 +29,7 @@
       "Type": "String",
       "Description": "Name of the service"
     },
-   "TAG_VERSION": {
+   "TagVersion": {
       "Default": "",
       "Type": "String",
       "Description": "Service Version to be used in service discovery"
