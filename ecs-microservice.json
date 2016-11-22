@@ -27,7 +27,12 @@
     "ServiceName": {
       "Default": "",
       "Type": "String",
-      "Description": "Name of the service to be used in service discovery"
+      "Description": "Name of the service"
+    },
+   "TAG_VERSION": {
+      "Default": "",
+      "Type": "String",
+      "Description": "Service Version to be used in service discovery"
     }
   },
   "Mappings": {
@@ -193,8 +198,12 @@
                 "Value": {"Ref":"ENV"}
               },
               {
-                "Name": "SERVICE_NAME",
+                "Name": "MICRO_SERVICE_NAME",
                 "Value": {"Ref":"ServiceName"}
+              },
+              {
+                "Name": "SERVICE_TAGS",
+                "Value": [{"Ref":"TAG_VERSION"}]
               }
             ]
           }
