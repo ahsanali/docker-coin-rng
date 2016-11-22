@@ -203,7 +203,7 @@
               },
               {
                 "Name": "SERVICE_TAGS",
-                "Value": {"Ref":"TAG_VERSION"}
+                "Value": {"Ref":"TagVersion"}
               }
             ]
           }
