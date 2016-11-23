@@ -8,4 +8,4 @@ def test_index(base_url):
 def test_random_bytes(base_url):
 	"Make sure the number of bytes returned are correct"
 	bytes = urllib2.urlopen('{0}/32'.format(base_url)).read()
-	assert 32 == len(bytes)
+	assert 28 == len(bytes)
