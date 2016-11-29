@@ -6,7 +6,7 @@ import time
 app = Flask(__name__)
 
 # Enable debugging if the DEBUG environment variable is set and starts with Y
-# Demo 
+# Demo BB
 app.debug = os.environ.get("DEBUG", "").lower().startswith('y')
 
 hostname = socket.gethostname()
