@@ -8,9 +8,9 @@ render_template() {
 
 #REGION=`curl http://169.254.169.254/latest/dynamic/instance-identity/document|grep region|awk -F\" '{print $4}'`
 REGION='us-west-2'
-aws --profile okta s3 --region ${REGION}  cp s3://${DEVOPS_BUCKET}/secure/${ENV}/rds/${RDS_NAME}/${RDS_NAME}.sh /tmp/creds-encrypted.sh
+aws  s3 --region ${REGION}  cp s3://${DEVOPS_BUCKET}/secure/${ENV}/rds/${RDS_NAME}/${RDS_NAME}.sh /tmp/creds-encrypted.sh
 
-aws  --profile okta kms decrypt --region ${REGION}  --ciphertext-blob fileb:///tmp/creds-encrypted.sh --output text --query Plaintext | base64 --decode > /tmp/creds.sh
+aws   kms decrypt --region ${REGION}  --ciphertext-blob fileb:///tmp/creds-encrypted.sh --output text --query Plaintext | base64 --decode > /tmp/creds.sh
 
 . /tmp/creds.sh
 
