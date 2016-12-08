@@ -206,6 +206,14 @@
                 "Value": {"Ref":"ENV"}
               },
               {
+                "Name": "DEVOPS_BUCKET",
+                "Value": "millenniumhealth-devops"
+              },
+              {
+                "Name": "RDS_NAME",
+                "Value": "rngdb"
+              },
+              {
                 "Name": "MICRO_SERVICE_NAME",
                 "Value": {"Ref":"ServiceName"}
               },

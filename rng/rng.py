@@ -1,4 +1,5 @@
 from flask import Flask, Response
+from .config import DevelopmentConfig
 import os
 import socket
 import time
@@ -7,7 +8,12 @@ app = Flask(__name__)
 
 # Enable debugging if the DEBUG environment variable is set and starts with Y
 # Demo BB
-app.debug = os.environ.get("DEBUG", "").lower().startswith('y')
+# app.debug = os.environ.get("DEBUG", "").lower().startswith('y')
+
+app.config.from_object(DevelopmentConfig) 
+APPLICATION_CONFIG = os.environ.get("APPLICATION_CONFIG", "").lower()
+if APPLICATION_CONFIG:
+	app.config.from_envvar('APPLICATION_CONFIG')
 
 hostname = socket.gethostname()
 
