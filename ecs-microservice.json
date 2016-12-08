@@ -37,7 +37,7 @@
    "MicroServicesECSTaskDefRole": {
       "Default": "",
       "Type": "String",
-      "Description": "Microservice TaskDefinition IAM Role"
+      "Description": "Microservice TaskDefinition IAM Role 1"
     }
   },
   "Mappings": {
