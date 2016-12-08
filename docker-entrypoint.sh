@@ -1,9 +1,5 @@
 #!/bin/sh
 set -e
-echo "here"
-export ENV='dev'
-export DEVOPS_BUCKET='millenniumhealth-devops'
-export RDS_NAME='test'
 if [ ! -z "$ENV" ]
 then
 render_template() {
