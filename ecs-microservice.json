@@ -33,6 +33,11 @@
       "Default": "",
       "Type": "String",
       "Description": "Service Version to be used in service discovery"
+    },
+   "MicroServicesECSTaskDefRole": {
+      "Default": "",
+      "Type": "String",
+      "Description": "Microservice TaskDefinition IAM Role"
     }
   },
   "Mappings": {
@@ -162,6 +167,9 @@
     "microservicedefinition": {
       "Type": "AWS::ECS::TaskDefinition",
       "Properties": {
+        "TaskRoleArn": {
+            "Ref": "MicroServicesECSTaskDefRole"
+        },
         "ContainerDefinitions": [
           {
             "LogConfiguration": {
